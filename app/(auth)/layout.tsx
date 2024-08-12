@@ -1,5 +1,5 @@
 import React from "react";
 
-export function layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return <main className="auth">{children}</main>;
 }

@@ -1,11 +1,22 @@
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className="root">
-      root layout
-      <div className="root-container">
-        <div className="wrapper">{children}</div>
-      </div>
-    </main>
+    <>
+      <header>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </header>
+      <main className="root">
+        <div className="root-container">
+          <div className="wrapper">{children}</div>
+        </div>
+      </main>
+    </>
   );
 };
 

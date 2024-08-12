@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, Poppins } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import { cn } from "@/lib/utils";
 
@@ -28,16 +29,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          "font-IBMPlex antialiased",
-          IBMPlex.variable,
-          poppins.variable
-        )}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={cn(
+            "font-IBMPlex antialiased",
+            IBMPlex.variable,
+            poppins.variable
+          )}
+        >
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
