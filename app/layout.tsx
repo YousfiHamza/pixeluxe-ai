@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Poppins } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+
+import { ThemeProvider } from "@/Providers/ThemeProvider";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 import { cn } from "@/lib/utils";
 
@@ -17,10 +20,10 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-const IBMPlex = IBM_Plex_Sans({
+const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-ibm-plex",
+  variable: "--font-inter",
 });
 
 export default function RootLayout({
@@ -33,12 +36,20 @@ export default function RootLayout({
       <html lang="en">
         <body
           className={cn(
-            "font-IBMPlex antialiased",
-            IBMPlex.variable,
+            "font-poppins antialiased",
+            inter.variable,
             poppins.variable
           )}
         >
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ThemeToggle />
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
