@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetClose,
-} from "@/components/ui/sheet";
-import { navLinks } from "@/constants";
-import { SignedIn, UserButton } from "@clerk/nextjs";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+} from '@/components/ui/sheet';
+import { navLinks } from '@/constants';
+import { SignedIn, UserButton } from '@clerk/nextjs';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export function MobileSideBar() {
   const pathname = usePathname();
@@ -48,14 +48,14 @@ export function MobileSideBar() {
                 />
 
                 <ul className="header-nav_elements">
-                  {navLinks.map((link) => {
+                  {navLinks.map(link => {
                     const isActive = link.route === pathname;
 
                     return (
                       <li
                         className={`${
-                          isActive && "gradient-text"
-                        } p-18 flex whitespace-nowrap text-dark-700 dark:text-slate-400`}
+                          isActive && 'gradient-text'
+                        } p-18 text-theme-100 flex whitespace-nowrap`}
                         key={link.route}
                       >
                         <SheetClose asChild>

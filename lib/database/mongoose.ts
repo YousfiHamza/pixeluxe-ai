@@ -17,19 +17,16 @@ if (!cached) {
 }
 
 export const connectToDatabase = async () => {
-  // if (cached.connection) return cached.connection;
+  if (cached.connection) return cached.connection;
 
   if (!MONGODB_URI) throw new Error('Missing MONGODB_URI');
 
-  cached.promise = mongoose.connect(MONGODB_URI, {
-    dbName: 'Pixeluxe',
-    bufferCommands: false,
-  });
-  // cached.promise ||
-  // mongoose.connect(MONGODB_URI, {
-  //   dbName: 'Pixeluxe',
-  //   bufferCommands: false,
-  // });
+  cached.promise =
+    cached.promise ||
+    mongoose.connect(MONGODB_URI, {
+      dbName: 'Pixeluxe',
+      bufferCommands: false,
+    });
 
   cached.connection = await cached.promise;
 
