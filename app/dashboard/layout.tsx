@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 
-import { Sidebar } from "@/components/modules/SideBar";
+import { DesktopSidebar } from "@/components/modules/Sidebar/Desktop";
+import { MobileSideBar } from "@/components/modules/Sidebar/Mobile";
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
   const { userId } = auth();
@@ -10,7 +11,8 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
 
   return (
     <main className="root">
-      <Sidebar />
+      <DesktopSidebar />
+      <MobileSideBar />
       <div className="root-container">
         <div className="wrapper">{children}</div>
       </div>
