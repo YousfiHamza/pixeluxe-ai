@@ -1,7 +1,10 @@
-import { navLinks } from '@/constants';
-import { getAllImages } from '@/lib/actions/image.actions';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { Collection } from '@/components/shared/Collection';
+
+import { navLinks } from '@/constants';
+import { getAllImages } from '@/lib/actions/image.actions';
 
 export default async function Dashboard({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
@@ -12,9 +15,11 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
   return (
     <>
       <section className="home">
-        <h1 className="home-heading text-slate-200">
+        <h1 className="home-heading font-inter text-slate-200">
           Unleash Your Creative Vision With{' '}
-          <span className="text-shadow-lg text-white">Pixeluxe</span>
+          <span className="text-shadow-lg font-poppins font-bold text-white">
+            Pixeluxe
+          </span>
         </h1>
         <ul className="flex-center w-full gap-20">
           {navLinks.slice(1, 5).map(link => (
@@ -23,7 +28,7 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
               href={link.route}
               className="flex-center group flex-col gap-2"
             >
-              <li className="flex-center w-fit rounded-full bg-slate-100 p-4 group-hover:bg-slate-300">
+              <li className="flex-center w-fit rounded-full bg-slate-100 p-4 shadow-lg shadow-black group-hover:bg-slate-300">
                 <Image
                   src={link.icon}
                   alt="image"
@@ -38,6 +43,14 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
             </Link>
           ))}
         </ul>
+      </section>
+      <section className="sm:mt-12">
+        <Collection
+          hasSearch={true}
+          images={images?.data}
+          totalPages={images?.totalPage}
+          page={page}
+        />
       </section>
     </>
   );

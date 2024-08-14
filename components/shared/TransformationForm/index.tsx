@@ -211,7 +211,9 @@ export function TransformationForm({
           name="title"
           formLabel="Image Title"
           className="w-full"
-          render={({ field }) => <Input {...field} className="input-field" />}
+          render={({ field }) => (
+            <Input {...field} className="input-field" required />
+          )}
         />
 
         {type === 'fill' && (

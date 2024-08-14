@@ -1,10 +1,12 @@
 'use client';
 
+import Image from 'next/image';
+import React from 'react';
+
 import { dataUrl, debounce, download, getImageSize } from '@/lib/utils';
 import { CldImage, getCldImageUrl } from 'next-cloudinary';
 import { PlaceholderValue } from 'next/dist/shared/lib/get-img-props';
-import Image from 'next/image';
-import React from 'react';
+import DownloadIcon from '@/public/assets/icons/download.svg';
 
 const TransformedImage = ({
   image,
@@ -40,13 +42,8 @@ const TransformedImage = ({
 
         {hasDownload && (
           <button className="download-btn" onClick={downloadHandler}>
-            <Image
-              src="/assets/icons/download.svg"
-              alt="Download"
-              width={24}
-              height={24}
-              className="pb-[6px]"
-            />
+            Download
+            <DownloadIcon className="group-hover:fill-red-500" />
           </button>
         )}
       </div>
