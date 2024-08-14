@@ -1,4 +1,4 @@
-import { BackgroundTaskOut } from 'svix';
+import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -94,7 +94,24 @@ module.exports = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      textShadow: {
+        sm: '0 1px 2px rgba(0, 0, 0, 0.9)',
+        DEFAULT: '0 2px 4px rgba(0, 0, 0, 0.9)',
+        lg: '0 8px 16px rgba(0, 0, 0, 0.9)',
+      },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'text-shadow': value => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') },
+      );
+    }),
+  ],
 };

@@ -32,7 +32,7 @@ const TransformedImage = ({
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-1">
       <div className="flex-between">
         <h3 className="text-theme-200 font-inter text-2xl font-bold italic">
           Transformed
@@ -85,7 +85,9 @@ const TransformedImage = ({
           )}
         </div>
       ) : (
-        <div className="transformed-placeholder">Transformed Image</div>
+        <div className="transformed-placeholder text-theme-100">
+          Transformed Image
+        </div>
       )}
     </div>
   );

@@ -63,7 +63,7 @@ const MediaUploader = ({
       onError={onUploadErrorHandler}
     >
       {({ open }) => (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-1">
           <h3 className="text-theme-200 font-inter text-2xl font-bold italic">
             Original
           </h3>
@@ -92,7 +92,9 @@ const MediaUploader = ({
                   height={24}
                 />
               </div>
-              <p className="p-14-medium">Click here to upload image</p>
+              <p className="p-14-medium text-theme-100">
+                Click here to upload image
+              </p>
             </div>
           )}
         </div>
