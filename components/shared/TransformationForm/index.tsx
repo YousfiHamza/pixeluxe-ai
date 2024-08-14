@@ -33,7 +33,7 @@ import {
 } from '@/constants';
 import { AspectRatioKey, debounce, deepMergeObjects } from '@/lib/utils';
 import { updateCredits } from '@/lib/actions/user.actions';
-import { addImage, updateImage } from '@/lib/actions/image.actions';
+import { addImage, updateImage } from '@/lib/actions/image.action';
 
 export const formSchema = z.object({
   title: z.string(),

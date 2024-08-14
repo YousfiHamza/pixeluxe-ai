@@ -95,7 +95,7 @@ export async function getImageById(imageId: string) {
 
 // GET IMAGES
 export async function getAllImages({
-  limit = 9,
+  limit = 2,
   page = 1,
   searchQuery = '',
 }: {

@@ -13,7 +13,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-import { deleteImage } from '@/lib/actions/image.actions';
+import { deleteImage } from '@/lib/actions/image.action';
 
 import { Button } from '@/components/ui/button';
 

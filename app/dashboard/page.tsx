@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Collection } from '@/components/shared/Collection';
 
 import { navLinks } from '@/constants';
-import { getAllImages } from '@/lib/actions/image.actions';
+import { getAllImages } from '@/lib/actions/image.action';
 
 export default async function Dashboard({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
@@ -17,7 +17,7 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
       <section className="home">
         <h1 className="home-heading font-inter text-slate-200">
           Unleash Your Creative Vision With{' '}
-          <span className="text-shadow-lg font-poppins font-bold text-white">
+          <span className="font-poppins font-bold text-white text-shadow-lg">
             Pixeluxe
           </span>
         </h1>
@@ -46,7 +46,7 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
       </section>
       <section className="sm:mt-12">
         <Collection
-          hasSearch={true}
+          hasSearch
           images={images?.data}
           totalPages={images?.totalPage}
           page={page}
