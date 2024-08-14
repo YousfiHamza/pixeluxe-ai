@@ -99,7 +99,11 @@
   }
 
   .text-theme-200 {
-    @apply text-dark-600 dark:text-blue-700;
+    @apply text-dark-600 dark:text-blue-800;
+  }
+
+  .text-theme-300 {
+    @apply text-purple-700 dark:text-purple-500;
   }
 
   /* ===== UTILITIES */
