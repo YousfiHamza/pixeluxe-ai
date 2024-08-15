@@ -19,13 +19,21 @@ export const InsufficientCreditsModal = () => {
 
   return (
     <AlertDialog defaultOpen>
-      <AlertDialogContent>
+      <AlertDialogContent
+        onEscapeKeyDown={e => {
+          e.preventDefault();
+          router.push('/dashboard');
+        }}
+      >
         <AlertDialogHeader>
           <div className="flex-between">
             <p className="p-16-semibold text-dark-400">Insufficient Credits</p>
             <AlertDialogCancel
               className="border-0 p-0 hover:bg-transparent"
-              onClick={() => router.push('/dashboard/profile')}
+              onClick={e => {
+                e.preventDefault();
+                router.push('/dashboard/profile');
+              }}
             >
               <Image
                 src="/assets/icons/close.svg"
@@ -56,13 +64,19 @@ export const InsufficientCreditsModal = () => {
         <AlertDialogFooter>
           <AlertDialogCancel
             className="button w-full bg-purple-100 text-dark-400"
-            onClick={() => router.push('/dashboard/profile')}
+            onClick={e => {
+              e.preventDefault();
+              router.push('/dashboard/profile');
+            }}
           >
             No, Cancel
           </AlertDialogCancel>
           <AlertDialogAction
             className="button w-full bg-purple-gradient bg-cover"
-            onClick={() => router.push('/dashboard/credits')}
+            onClick={e => {
+              e.preventDefault();
+              router.push('/dashboard/credits');
+            }}
           >
             Yes, Proceed
           </AlertDialogAction>

@@ -10,7 +10,7 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
   const searchQuery = (searchParams?.query as string) || '';
 
-  const images = await getAllImages({ page, searchQuery });
+  const images = await getAllImages({ page, searchQuery, limit: 6 });
 
   return (
     <>

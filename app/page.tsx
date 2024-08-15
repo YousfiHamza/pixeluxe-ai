@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="bg-theme flex min-h-[100vw]">
+    <main className="bg-theme flex min-h-screen">
       Hello from Pixeluxe.Ai !
       <SignedOut>
         <Button asChild className="button bg-purple-gradient bg-cover">
