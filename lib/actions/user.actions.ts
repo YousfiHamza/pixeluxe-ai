@@ -93,19 +93,41 @@ export async function updateCredits(userId: string, creditFee: number) {
 }
 
 // FIRST TIME CONSENT
-export async function updateFirstTimeConsent(
-  clerkId: string,
-  user: UpdateUserParams,
-) {
+export async function updateFirstTimeConsent(clerkId: string) {
   try {
     await connectToDatabase();
 
-    const updatedUser = await User.findOneAndUpdate({ clerkId }, user, {
-      isFirstTime: false,
-    });
+    const updatedUser = await User.findOneAndUpdate(
+      { clerkId },
+      {
+        isFirstTime: false,
+      },
+      { new: true },
+    );
 
     if (!updatedUser)
       throw new Error('User update failed: updateFirstTimeConsent');
+
+    return JSON.parse(JSON.stringify(updatedUser));
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+// DEMO OVER
+export async function updateDemoOver(clerkId: string) {
+  try {
+    await connectToDatabase();
+
+    const updatedUser = await User.findOneAndUpdate(
+      { clerkId },
+      {
+        isDemoOver: false,
+      },
+      { new: true },
+    );
+
+    if (!updatedUser) throw new Error('User update failed: updateDemoOver');
 
     return JSON.parse(JSON.stringify(updatedUser));
   } catch (error) {

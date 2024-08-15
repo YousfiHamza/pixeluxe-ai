@@ -135,6 +135,11 @@
   /* ===== TYPOGRAPHY */
 
   /* 44 */
+  .h1-medium {
+    @apply text-[36px] font-medium leading-[120%] sm:text-[44px] sm:leading-[56px];
+  }
+
+  /* 44 */
   .h1-semibold {
     @apply text-[36px] font-semibold leading-[120%] sm:text-[44px] sm:leading-[56px];
   }
@@ -147,6 +152,11 @@
   /* 30 */
   .h3-bold {
     @apply text-[30px] font-bold leading-[140%];
+  }
+
+  /* 24 - medium */
+  .p-24-medium {
+    @apply text-[24px] font-medium leading-[120%];
   }
 
   /* 24 */
@@ -258,7 +268,7 @@
   }
 
   .home-heading {
-    @apply h1-semibold max-w-[500px] flex-wrap text-center shadow-sm;
+    @apply h1-medium max-w-[500px] flex-wrap text-center shadow-sm;
   }
 
   /* Credits Page */

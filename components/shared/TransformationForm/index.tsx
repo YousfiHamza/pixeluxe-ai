@@ -22,13 +22,11 @@ import { Form } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import TransformedImage from '@/components/shared/TransformedImage';
 import { CustomField } from '@/components/shared/TransformationForm/CustomField';
-import { InsufficientCreditsModal } from '@/components/shared/InsufficientCreditsModal';
 import MediaUploader from '@/components/shared/MediaUploader';
 
 // UTILS IMPORTS
 import {
   aspectRatioOptions,
-  creditFee,
   formDefaultValues,
   transformationTypes,
 } from '@/constants';
@@ -48,7 +46,6 @@ export function TransformationForm({
   data = null,
   userId,
   type,
-  creditBalance,
   config = null,
 }: TransformationFormProps) {
   const transformationType = transformationTypes[type];
@@ -203,7 +200,6 @@ export function TransformationForm({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
         <CustomField
           control={form.control}
           name="title"

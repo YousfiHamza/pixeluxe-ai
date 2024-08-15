@@ -17,18 +17,21 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
 
   if (!userId) redirect('/');
 
+  // to avoid the waterfall effect, we can fetch the user and images in parallel
   const [images, user] = await Promise.all([
     getAllImages({ page, searchQuery, limit: 6 }),
     getUserById(userId),
   ]);
 
+  console.log('user : ', user);
+
   return (
     <>
-      {user?.isFirstTime && <FirstTimeModal />}
+      {user?.isFirstTime && <FirstTimeModal clerkId={userId} user={user} />}
       <section className="home">
-        <h1 className="home-heading font-inter text-slate-200">
-          Unleash Your Creative Vision With{' '}
-          <span className="font-poppins font-bold text-white text-shadow-lg">
+        <h1 className="home-heading font-inter text-slate-100">
+          Unleash your creative vision with{' '}
+          <span className="font-poppins text-6xl font-bold text-white text-shadow-lg">
             Pixeluxe
           </span>
         </h1>

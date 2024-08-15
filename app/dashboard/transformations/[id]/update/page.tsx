@@ -3,17 +3,22 @@ import { redirect } from 'next/navigation';
 
 import Header from '@/components/shared/Header';
 import { TransformationForm } from '@/components/shared/TransformationForm';
-import { transformationTypes } from '@/constants';
+import { InsufficientCreditsModal } from '@/components/shared/InsufficientCreditsModal';
+
 import { getUserById } from '@/lib/actions/user.actions';
 import { getImageById } from '@/lib/actions/image.action';
+import { transformationTypes, creditFee } from '@/constants';
 
 const Page = async ({ params: { id } }: SearchParamProps) => {
   const { userId } = auth();
 
   if (!userId) redirect('/sign-in');
 
-  const user = await getUserById(userId);
-  const image = await getImageById(id);
+  // to avoid the waterfall effect, we can fetch the user and images in parallel
+  const [image, user] = await Promise.all([
+    getImageById(id),
+    getUserById(userId),
+  ]);
 
   if (
     image.transformationType === 'restore' ||
@@ -29,12 +34,15 @@ const Page = async ({ params: { id } }: SearchParamProps) => {
     <>
       <Header title={transformation.title} subtitle={transformation.subTitle} />
 
+      {user.creditBalance < Math.abs(creditFee) && (
+        <InsufficientCreditsModal clerkId={userId} />
+      )}
+
       <section className="mt-10">
         <TransformationForm
-          action="Update"
           userId={user._id}
+          action="Update"
           type={image.transformationType as TransformationTypeKey}
-          creditBalance={user.creditBalance}
           config={image.config}
           data={image}
         />

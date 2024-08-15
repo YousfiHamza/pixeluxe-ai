@@ -13,7 +13,7 @@ declare type UpdateUserParams = {
   lastName: string;
   username: string;
   photo: string;
-  isFirstTime: boolean;
+  isFirstTime?: boolean;
 };
 
 // ====== IMAGE PARAMS
@@ -86,7 +86,6 @@ declare type TransformationFormProps = {
   action: 'Add' | 'Update';
   userId: string;
   type: TransformationTypeKey;
-  creditBalance: number;
   data?: IImage | null;
   config?: Transformations | null;
 };

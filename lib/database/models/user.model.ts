@@ -43,11 +43,15 @@ const UserSchema = new Schema({
   },
   creditBalance: {
     type: Number,
-    default: 10,
+    default: 6,
   },
   isFirstTime: {
     type: Boolean,
     default: true,
+  },
+  isDemoOver: {
+    type: Boolean,
+    default: false,
   },
 });
 

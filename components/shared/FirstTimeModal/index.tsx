@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { XIcon } from 'lucide-react';
 
 import {
   AlertDialog,
@@ -13,30 +14,32 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
+import { updateFirstTimeConsent } from '@/lib/actions/user.actions';
 
-export const FirstTimeModal = () => {
+export const FirstTimeModal = ({
+  clerkId,
+  user,
+}: {
+  clerkId: string;
+  user: UpdateUserParams;
+}) => {
   const router = useRouter();
+
+  const handleConsent = () => {
+    updateFirstTimeConsent(clerkId);
+  };
 
   return (
     <AlertDialog defaultOpen>
-      <AlertDialogContent>
+      <AlertDialogContent
+        className="bg-slate-200"
+        onCloseAutoFocus={() => handleConsent()}
+      >
         <AlertDialogHeader>
           <div className="flex-between">
-            <p className="p-16-semibold text-dark-400">Limited Credits</p>
-            <AlertDialogCancel
-              className="border-0 p-0 hover:bg-transparent"
-              onClick={e => {
-                e.preventDefault();
-                router.push('/dashboard/profile');
-              }}
-            >
-              <Image
-                src="/assets/icons/close.svg"
-                alt="credit coins"
-                width={24}
-                height={24}
-                className="cursor-pointer"
-              />
+            <p className="h2-bold text-theme-200 font-inter">Limited Credits</p>
+            <AlertDialogCancel className="h-6 w-6 rounded-full border-0 bg-transparent p-0 hover:bg-red-500">
+              <XIcon className="text-theme-100 hover:text-white" />
             </AlertDialogCancel>
           </div>
 
@@ -47,23 +50,23 @@ export const FirstTimeModal = () => {
             height={122}
           />
 
-          <AlertDialogTitle className="p-24-bold text-dark-600">
-            Yoooo .... You Only Have 6 Free Coins, Please Use them wisely 😅!
+          <AlertDialogTitle className="p-24-medium text-slate-500">
+            You Only Have <span className="font-bold">6 Free Coins</span>,
+            Please Use them wisely 😅!
           </AlertDialogTitle>
 
-          <AlertDialogDescription className="p-16-regular py-3">
+          <AlertDialogDescription className="p-16-regular italic">
             No worries, though - you can keep enjoying our services by grabbing
             more credits.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel className="button w-full bg-purple-100 text-dark-400">
+          <AlertDialogCancel className="button w-full bg-slate-100 text-dark-400 hover:bg-white">
             I understand
           </AlertDialogCancel>
           <AlertDialogAction
-            className="button w-full bg-purple-gradient bg-cover"
-            onClick={e => {
-              e.preventDefault();
+            className="button w-full bg-purple-gradient bg-cover text-slate-200 hover:opacity-80"
+            onClick={() => {
               router.push('/dashboard/credits');
             }}
           >

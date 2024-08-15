@@ -3,9 +3,10 @@ import { auth } from '@clerk/nextjs/server';
 
 import Header from '@/components/shared/Header';
 import { TransformationForm } from '@/components/shared/TransformationForm';
-// import TransformationForm from '@/components/shared/TransformationForm';
-import { transformationTypes } from '@/constants';
+import { InsufficientCreditsModal } from '@/components/shared/InsufficientCreditsModal';
+
 import { getUserById } from '@/lib/actions/user.actions';
+import { transformationTypes, creditFee } from '@/constants';
 
 const AddTransformationTypePage = async ({
   params: { type },
@@ -25,12 +26,15 @@ const AddTransformationTypePage = async ({
         logo={`/assets/icons/${transformation.icon}`}
       />
 
+      {user.creditBalance < Math.abs(creditFee) && (
+        <InsufficientCreditsModal clerkId={userId} />
+      )}
+
       <section className="mt-8">
         <TransformationForm
           userId={user._id}
           action="Add"
           type={transformation.type as TransformationTypeKey}
-          creditBalance={user.creditBalance}
         />
       </section>
     </>
