@@ -42,17 +42,15 @@ export const FirstTimeModal = ({
               <XIcon className="text-theme-100 hover:text-white" />
             </AlertDialogCancel>
           </div>
-
-          <Image
-            src="/assets/images/stacked-coins.png"
-            alt="credit coins"
-            width={462}
-            height={122}
-          />
+          <div className="rounded-lg bg-banner bg-cover bg-no-repeat p-6 contrast-125">
+            <h1 className="home-heading font-poppins text-6xl font-bold text-white text-shadow-lg">
+              Welcome !
+            </h1>
+          </div>
 
           <AlertDialogTitle className="p-24-medium text-dark-600">
             You Only Have <span className="font-bold">6 Free Coins</span>,
-            Please Use them wisely 😅!
+            Please Use them wisely 😅 . . .
           </AlertDialogTitle>
 
           <AlertDialogDescription className="p-16-regular italic">
