@@ -25,7 +25,7 @@ const AddTransformationTypePage = async ({
         logo={`/assets/icons/${transformation.icon}`}
       />
 
-      <section className="mt-10">
+      <section className="mt-8">
         <TransformationForm
           userId={user._id}
           action="Add"

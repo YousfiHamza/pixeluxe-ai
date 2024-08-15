@@ -8,7 +8,7 @@ import { Toaster } from '@/components/ui/toaster';
 const Layout = async ({ children }: { children: React.ReactNode }) => {
   const { userId } = auth();
 
-  if (!userId) redirect('/');
+  if (!userId) redirect('/auth/sign-in');
 
   return (
     <main className="root bg-theme">

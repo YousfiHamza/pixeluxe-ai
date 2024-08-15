@@ -1,6 +1,7 @@
 import { auth } from '@clerk/nextjs/server';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Hammer } from 'lucide-react';
 
 import Header from '@/components/shared/Header';
 import TransformedImage from '@/components/shared/TransformedImage';
@@ -95,12 +96,18 @@ export default async function ImageDetails({
 
         {userId === image.author.clerkId && (
           <div className="mt-4 space-y-4">
-            <Button asChild type="button" className="submit-button capitalize">
-              <Link href={`/dashboard/transformations/${image._id}/update`}>
-                Update Image
-              </Link>
-            </Button>
-
+            {image.transformationType !== 'restore' &&
+              image.transformationType !== 'removeBackground' && (
+                <Button
+                  asChild
+                  type="button"
+                  className="submit-button capitalize"
+                >
+                  <Link href={`/dashboard/transformations/${image._id}/update`}>
+                    <Hammer /> Update Image
+                  </Link>
+                </Button>
+              )}{' '}
             <DeleteConfirmation imageId={image._id} />
           </div>
         )}

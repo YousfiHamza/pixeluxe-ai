@@ -1,19 +1,30 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { auth } from '@clerk/nextjs/server';
 
 import { Collection } from '@/components/shared/Collection';
+import { FirstTimeModal } from '@/components/shared/FirstTimeModal';
 
 import { navLinks } from '@/constants';
 import { getAllImages } from '@/lib/actions/image.action';
+import { getUserById } from '@/lib/actions/user.actions';
 
 export default async function Dashboard({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
   const searchQuery = (searchParams?.query as string) || '';
+  const { userId } = auth();
 
-  const images = await getAllImages({ page, searchQuery, limit: 6 });
+  if (!userId) redirect('/');
+
+  const [images, user] = await Promise.all([
+    getAllImages({ page, searchQuery, limit: 6 }),
+    getUserById(userId),
+  ]);
 
   return (
     <>
+      {user?.isFirstTime && <FirstTimeModal />}
       <section className="home">
         <h1 className="home-heading font-inter text-slate-200">
           Unleash Your Creative Vision With{' '}
@@ -44,14 +55,16 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
           ))}
         </ul>
       </section>
-      <section className="sm:mt-12">
-        <Collection
-          hasSearch
-          images={images?.data}
-          totalPages={images?.totalPage}
-          page={page}
-        />
-      </section>
+      {images && (
+        <section className="sm:mt-12">
+          <Collection
+            hasSearch
+            images={images?.data}
+            totalPages={images?.totalPage}
+            page={page}
+          />
+        </section>
+      )}
     </>
   );
 }

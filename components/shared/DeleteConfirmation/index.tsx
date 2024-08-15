@@ -1,6 +1,7 @@
 'use client';
 
 import { useTransition } from 'react';
+import { Trash2 } from 'lucide-react';
 
 import {
   AlertDialog,
@@ -28,7 +29,7 @@ export const DeleteConfirmation = ({ imageId }: { imageId: string }) => {
           className="button h-[44px] w-full hover:brightness-125 md:h-[54px]"
           variant="destructive"
         >
-          Delete Image
+          <Trash2 /> Delete Image
         </Button>
       </AlertDialogTrigger>
 

@@ -15,6 +15,13 @@ const Page = async ({ params: { id } }: SearchParamProps) => {
   const user = await getUserById(userId);
   const image = await getImageById(id);
 
+  if (
+    image.transformationType === 'restore' ||
+    image.transformationType === 'removeBackground'
+  ) {
+    redirect('/dashboard');
+  }
+
   const transformation =
     transformationTypes[image.transformationType as TransformationTypeKey];
 

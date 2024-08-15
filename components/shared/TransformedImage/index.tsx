@@ -40,7 +40,7 @@ const TransformedImage = ({
           Transformed
         </h3>
 
-        {hasDownload && (
+        {hasDownload && image?.publicId && transformationConfig && (
           <button className="download-btn" onClick={downloadHandler}>
             Download
             <DownloadIcon className="group-hover:fill-red-500" />

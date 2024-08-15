@@ -26,7 +26,7 @@ export async function getUserById(userId: string) {
 
     const user = await User.findOne({ clerkId: userId });
 
-    if (!user) throw new Error('User not found');
+    if (!user) throw new Error('User not found: getUserById');
 
     return JSON.parse(JSON.stringify(user));
   } catch (error) {
@@ -60,7 +60,7 @@ export async function deleteUser(clerkId: string) {
     const userToDelete = await User.findOne({ clerkId });
 
     if (!userToDelete) {
-      throw new Error('User not found');
+      throw new Error('User not found: deleteUser');
     }
 
     // Delete user
@@ -87,6 +87,27 @@ export async function updateCredits(userId: string, creditFee: number) {
     if (!updatedUserCredits) throw new Error('User credits update failed');
 
     return JSON.parse(JSON.stringify(updatedUserCredits));
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+// FIRST TIME CONSENT
+export async function updateFirstTimeConsent(
+  clerkId: string,
+  user: UpdateUserParams,
+) {
+  try {
+    await connectToDatabase();
+
+    const updatedUser = await User.findOneAndUpdate({ clerkId }, user, {
+      isFirstTime: false,
+    });
+
+    if (!updatedUser)
+      throw new Error('User update failed: updateFirstTimeConsent');
+
+    return JSON.parse(JSON.stringify(updatedUser));
   } catch (error) {
     handleError(error);
   }

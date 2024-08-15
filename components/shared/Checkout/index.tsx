@@ -1,7 +1,7 @@
 'use client';
 
 import { loadStripe } from '@stripe/stripe-js';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useToast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
@@ -19,6 +19,7 @@ const Checkout = ({
   credits: number;
   buyerId: string;
 }) => {
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -48,6 +49,7 @@ const Checkout = ({
   }, []);
 
   const onCheckout = async () => {
+    setLoading(true);
     const transaction = {
       plan,
       amount,
@@ -56,15 +58,17 @@ const Checkout = ({
     };
 
     await checkoutCredits(transaction);
+    setLoading(true);
   };
 
   return (
     <form action={onCheckout} method="POST">
       <section>
         <Button
+          disabled={loading}
           type="submit"
           role="link"
-          className="w-full rounded-full bg-purple-gradient bg-cover"
+          className="w-full rounded-full bg-purple-gradient bg-cover text-slate-100 hover:opacity-75 disabled:cursor-not-allowed"
         >
           Buy Credit
         </Button>

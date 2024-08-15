@@ -13,6 +13,7 @@ declare type UpdateUserParams = {
   lastName: string;
   username: string;
   photo: string;
+  isFirstTime: boolean;
 };
 
 // ====== IMAGE PARAMS

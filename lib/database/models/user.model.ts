@@ -45,6 +45,10 @@ const UserSchema = new Schema({
     type: Number,
     default: 10,
   },
+  isFirstTime: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const User = models?.User || model('User', UserSchema);

@@ -18,7 +18,7 @@ export default async function ProfilePage({ searchParams }: SearchParamProps) {
 
   return (
     <>
-      <Header title="Profile" />
+      <Header title="Profile" logo="/assets/icons/profile.svg" />
 
       <section className="profile">
         <div className="profile-balance">

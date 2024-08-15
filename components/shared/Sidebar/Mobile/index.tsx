@@ -38,7 +38,7 @@ export function MobileSideBar() {
                 height={32}
               />
             </SheetTrigger>
-            <SheetContent className="sheet-content sm:w-64">
+            <SheetContent className="sheet-content max-h-screen overflow-scroll sm:w-64">
               <>
                 <Image
                   src="/assets/images/logo-text.svg"

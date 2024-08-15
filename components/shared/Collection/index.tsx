@@ -45,7 +45,10 @@ export function Collection({
   return (
     <>
       <div className="collection-heading">
-        <h2 className="h2-bold text-theme-300 font-inter">Recent Edits:</h2>
+        <h2 className="h2-bold text-theme-300 font-inter md:-mt-6">
+          {/* TODO: find a better way please, here u are using the "hasSearch" value to differenciate between HomePage edits and ProfilePage edits */}
+          {hasSearch ? <>Creativity Hub:</> : <>Recent Edits:</>}
+        </h2>
         {hasSearch && <Search />}
       </div>
 

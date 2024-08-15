@@ -1,12 +1,13 @@
 'use client';
 
 // LIBRARY IMPORTS
-import { useEffect, useState, useTransition } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { getCldImageUrl } from 'next-cloudinary';
 import { useRouter } from 'next/navigation';
+import { Download, RotateCcw, Hammer } from 'lucide-react';
 
 // COMPONENTS IMPORTS
 import {
@@ -32,7 +33,6 @@ import {
   transformationTypes,
 } from '@/constants';
 import { AspectRatioKey, debounce, deepMergeObjects } from '@/lib/utils';
-import { updateCredits } from '@/lib/actions/user.actions';
 import { addImage, updateImage } from '@/lib/actions/image.action';
 
 export const formSchema = z.object({
@@ -58,8 +58,10 @@ export function TransformationForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isTransforming, setIsTransforming] = useState(false);
   const [transformationConfig, setTransformationConfig] = useState(config);
-  const [isPending, startTransition] = useTransition();
   const router = useRouter();
+
+  const canSaveImage =
+    !isSubmitting && image?.publicId && transformationConfig && !isTransforming;
 
   const initialValues =
     data && action === 'Update'
@@ -82,7 +84,7 @@ export function TransformationForm({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
 
-    if (data || image) {
+    if (canSaveImage && (data || image)) {
       const transformationUrl = getCldImageUrl({
         width: image?.width,
         height: image?.height,
@@ -190,10 +192,6 @@ export function TransformationForm({
     );
 
     setNewTransformation(null);
-
-    startTransition(async () => {
-      await updateCredits(userId, creditFee);
-    });
   };
 
   useEffect(() => {
@@ -204,7 +202,7 @@ export function TransformationForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
         <CustomField
           control={form.control}
@@ -255,6 +253,7 @@ export function TransformationForm({
               className="w-full"
               render={({ field }) => (
                 <Input
+                  required
                   value={field.value}
                   className="input-field"
                   onChange={e =>
@@ -277,6 +276,7 @@ export function TransformationForm({
                 className="w-full"
                 render={({ field }) => (
                   <Input
+                    required
                     value={field.value}
                     className="input-field"
                     onChange={e =>
@@ -306,6 +306,7 @@ export function TransformationForm({
                 publicId={field.value}
                 image={image}
                 type={type}
+                userId={userId}
               />
             )}
           />
@@ -327,15 +328,43 @@ export function TransformationForm({
             disabled={isTransforming || newTransformation === null}
             onClick={onTransformHandler}
           >
-            {isTransforming ? 'Transforming...' : 'Apply Transformation'}
+            {isTransforming ? (
+              'Transforming...'
+            ) : (
+              <div className="flex items-center justify-center gap-2">
+                <Hammer />
+                Apply Transformations
+              </div>
+            )}
           </Button>
-          <Button
-            type="submit"
-            className="submit-button capitalize"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'Submitting...' : 'Save Image'}
-          </Button>
+          <div className="flex flex-col justify-between gap-4 md:flex-row">
+            <Button
+              type="submit"
+              className="cta-button bg-green-600 capitalize"
+              disabled={!canSaveImage}
+            >
+              {isSubmitting ? (
+                'Submitting...'
+              ) : (
+                <div className="flex items-center justify-center gap-2">
+                  <Download />
+                  Save Image
+                </div>
+              )}
+            </Button>
+            {action === 'Add' && (
+              <Button
+                className="cta-button bg-red-500 capitalize"
+                onClick={() => window.location.reload()}
+                disabled={!image}
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <RotateCcw />
+                  New Image
+                </div>
+              </Button>
+            )}
+          </div>
         </div>
       </form>
     </Form>

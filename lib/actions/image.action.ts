@@ -24,7 +24,7 @@ export async function addImage({ image, userId, path }: AddImageParams) {
     const author = await User.findById(userId);
 
     if (!author) {
-      throw new Error('User not found');
+      throw new Error('User not found: addImage');
     }
 
     const newImage = await Image.create({
@@ -74,7 +74,7 @@ export async function deleteImage(imageId: string) {
   } catch (error) {
     handleError(error);
   } finally {
-    redirect('/');
+    redirect('/dashboard');
   }
 }
 

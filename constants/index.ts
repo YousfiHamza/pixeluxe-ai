@@ -139,6 +139,7 @@ export const plans = [
         isIncluded: false,
       },
     ],
+    isPopular: false,
   },
   {
     _id: 2,
@@ -164,6 +165,7 @@ export const plans = [
         isIncluded: false,
       },
     ],
+    isPopular: true,
   },
   {
     _id: 3,
@@ -189,5 +191,6 @@ export const plans = [
         isIncluded: true,
       },
     ],
+    isPopular: false,
   },
 ];

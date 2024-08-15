@@ -1,11 +1,14 @@
 'use client';
 
+import { useTransition } from 'react';
 import Image from 'next/image';
 import { CldImage, CldUploadWidget } from 'next-cloudinary';
 import { PlaceholderValue } from 'next/dist/shared/lib/get-img-props';
 
 import { useToast } from '@/components/ui/use-toast';
 import { dataUrl, getImageSize } from '@/lib/utils';
+import { updateCredits } from '@/lib/actions/user.actions';
+import { creditFee } from '@/constants';
 
 type MediaUploaderProps = {
   onValueChange: (value: string) => void;
@@ -13,6 +16,7 @@ type MediaUploaderProps = {
   publicId: string;
   image: any;
   type: string;
+  userId: string;
 };
 
 const MediaUploader = ({
@@ -21,10 +25,16 @@ const MediaUploader = ({
   image,
   publicId,
   type,
+  userId,
 }: MediaUploaderProps) => {
+  const [, startTransition] = useTransition();
   const { toast } = useToast();
 
   const onUploadSuccessHandler = (result: any) => {
+    startTransition(async () => {
+      await updateCredits(userId, creditFee);
+    });
+
     setImage((prevState: any) => ({
       ...prevState,
       publicId: result?.info?.public_id,
@@ -36,7 +46,7 @@ const MediaUploader = ({
     onValueChange(result?.info?.public_id);
 
     toast({
-      title: 'Image uploaded successfully',
+      title: '✔️ Image uploaded successfully',
       description: '1 credit was deducted from your account',
       duration: 5000,
       className: 'success-toast',
@@ -45,7 +55,7 @@ const MediaUploader = ({
 
   const onUploadErrorHandler = () => {
     toast({
-      title: 'Something went wrong while uploading',
+      title: '❌ Something went wrong while uploading',
       description: 'Please try again',
       duration: 5000,
       className: 'error-toast',
