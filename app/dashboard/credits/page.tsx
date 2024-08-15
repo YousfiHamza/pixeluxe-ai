@@ -43,16 +43,14 @@ const Credits = async () => {
                 className={`credits-item rounded-[16px] ${plan.isPopular ? 'border-4 border-red-500 md:rounded-tr-none' : 'border-2 border-purple-200/20'}`}
               >
                 <div className="">
-                  <div className="flex-center flex-col gap-3">
+                  <div className="flex-center flex-col gap-1">
                     <Image src={plan.icon} alt="check" width={50} height={50} />
-                    <p className="p-20-semibold mt-2 text-purple-500">
-                      {plan.name}
-                    </p>
+                    <p className="p-20-semibold text-purple-500">{plan.name}</p>
                     <p className="h1-semibold text-dark-600">${plan.price}</p>
                     <p className="p-16-regular">{plan.credits} Credits</p>
                   </div>
                   {/* Inclusions */}
-                  <ul className="flex flex-col gap-5 py-9">
+                  <ul className="flex flex-col gap-4 py-8">
                     {plan.inclusions.map(inclusion => (
                       <li
                         key={plan.name + inclusion.label}
@@ -73,7 +71,7 @@ const Credits = async () => {
                 </div>
                 <div>
                   {plan.name === 'Free' ? (
-                    <Button variant="outline" className="credits-btn">
+                    <Button disabled variant="outline" className="credits-btn">
                       Free Consumable
                     </Button>
                   ) : (

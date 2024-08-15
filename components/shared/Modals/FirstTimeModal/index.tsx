@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { XIcon } from 'lucide-react';
 
@@ -37,8 +36,10 @@ export const FirstTimeModal = ({
       >
         <AlertDialogHeader>
           <div className="flex-between">
-            <p className="h2-bold text-theme-200 font-inter">Limited Credits</p>
-            <AlertDialogCancel className="h-6 w-6 rounded-full border-0 bg-transparent p-0 hover:bg-red-500">
+            <p className="sm:h2-bold text-theme-200 font-inter text-xl font-bold italic">
+              Limited Credits
+            </p>
+            <AlertDialogCancel className="m-0 h-6 w-6 rounded-full border-0 bg-transparent p-0 hover:bg-red-500">
               <XIcon className="text-theme-100 hover:text-white" />
             </AlertDialogCancel>
           </div>

@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { XIcon } from 'lucide-react';
 
@@ -14,17 +13,11 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
+import { updateFirstTimeConsent } from '@/lib/actions/user.actions';
+import Link from 'next/link';
 
-import { updateDemoOver } from '@/lib/actions/user.actions';
-import { useEffect } from 'react';
-
-export const InsufficientCreditsModal = ({ clerkId }: { clerkId: string }) => {
+export const DemoFinishModal = () => {
   const router = useRouter();
-
-  // This code will be executed to avoid users to buy new credits and use our services since we still on the demo
-  useEffect(() => {
-    updateDemoOver(clerkId);
-  }, [clerkId]);
 
   return (
     <AlertDialog defaultOpen>
@@ -37,13 +30,13 @@ export const InsufficientCreditsModal = ({ clerkId }: { clerkId: string }) => {
       >
         <AlertDialogHeader>
           <div className="flex-between">
-            <p className="sm:h3-bold text-theme-200 font-inter text-xl font-bold">
-              Insufficient Coins
+            <p className="sm:h3-bold text-theme-200 text-xl font-bold">
+              Pixeluxe.Ai
             </p>
             <AlertDialogCancel
               onClick={e => {
                 e.preventDefault();
-                router.push('/dashboard/profile');
+                router.push('/dashboard');
               }}
               className="m-0 h-6 w-6 rounded-full border-0 bg-transparent p-0 hover:bg-red-500"
             >
@@ -51,40 +44,35 @@ export const InsufficientCreditsModal = ({ clerkId }: { clerkId: string }) => {
             </AlertDialogCancel>
           </div>
 
-          <Image
-            src="/assets/images/stacked-coins.png"
-            alt="credit coins"
-            width={462}
-            height={122}
-          />
+          <div className="rounded-lg bg-banner bg-cover bg-no-repeat p-6 contrast-125">
+            <h1 className="home-heading font-poppins text-6xl font-bold text-white text-shadow-lg">
+              Play Time is Over
+            </h1>
+          </div>
 
           <AlertDialogTitle className="p-24-bold text-dark-600">
-            Oops.... Looks like you&#39;ve run out of free credits!
+            Oops.... Looks like your demo session is finished!
           </AlertDialogTitle>
 
           <AlertDialogDescription className="p-16-regular italic">
-            No worries, though - you can keep enjoying our services by grabbing
-            more credits.
+            No worries, though - you can keep enjoying our services by simply
+            asking the developer to unlock your account again!
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel
-            className="button w-full bg-slate-100 text-dark-400 hover:bg-white hover:text-dark-500 dark:border-transparent"
+            className="button w-full self-stretch bg-slate-100 text-dark-400 hover:bg-white hover:text-dark-500 dark:border-transparent"
             onClick={e => {
               e.preventDefault();
-              router.push('/dashboard/profile');
+              router.push('/dashboard');
             }}
           >
-            Cancel
+            Close
           </AlertDialogCancel>
-          <AlertDialogAction
-            className="button w-full bg-purple-gradient bg-cover text-slate-200 hover:opacity-80"
-            onClick={e => {
-              e.preventDefault();
-              router.push('/dashboard/credits');
-            }}
-          >
-            Buy Credits
+          <AlertDialogAction className="button w-full bg-purple-gradient bg-cover text-slate-200 hover:opacity-80">
+            <Link href="https://www.linkedin.com/in/yousfihamza/">
+              Contact Developer
+            </Link>
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

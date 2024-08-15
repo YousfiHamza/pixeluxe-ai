@@ -4,7 +4,6 @@ import { SignedIn } from '@clerk/nextjs';
 
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogFooter,
@@ -28,17 +27,19 @@ export const StripeCardModal = ({
         >
           <AlertDialogHeader>
             <div className="flex-between">
-              <p className="h2-bold text-theme-200">Use This Test Card:</p>
-              <AlertDialogCancel className="h-6 w-6 rounded-full border-0 bg-transparent p-0 hover:bg-red-500">
+              <p className="sm:h3-bold text-theme-200 text-xl font-bold">
+                Use This Test Card:
+              </p>
+              <AlertDialogCancel className="m-0 h-6 w-6 rounded-full border-0 bg-transparent p-0 hover:bg-red-500">
                 <XIcon className="text-theme-100 hover:text-white" />
               </AlertDialogCancel>
             </div>
-
             <Image
               src="/assets/images/card-info.png"
               alt="credit coins"
               width={462}
               height={122}
+              className="rounded-lg grayscale"
             />
           </AlertDialogHeader>
           <AlertDialogFooter className="flex">

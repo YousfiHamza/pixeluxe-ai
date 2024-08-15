@@ -57,7 +57,7 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
         </ul>
       </section>
       {images && (
-        <section className="sm:mt-12">
+        <section className="sm:mt-6">
           <Collection
             hasSearch
             images={images?.data}
