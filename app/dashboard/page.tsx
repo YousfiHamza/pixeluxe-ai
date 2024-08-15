@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs/server';
 
 import { Collection } from '@/components/shared/Collection';
-import { FirstTimeModal } from '@/components/shared/FirstTimeModal';
+import { FirstTimeModal } from '@/components/shared/Modals/FirstTimeModal';
 
 import { navLinks } from '@/constants';
 import { getAllImages } from '@/lib/actions/image.action';
@@ -22,8 +22,6 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
     getAllImages({ page, searchQuery, limit: 6 }),
     getUserById(userId),
   ]);
-
-  console.log('user : ', user);
 
   return (
     <>

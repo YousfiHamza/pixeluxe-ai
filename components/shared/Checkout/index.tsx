@@ -62,15 +62,15 @@ const Checkout = ({
   };
 
   return (
-    <form action={onCheckout} method="POST">
+    <form action={onCheckout} method="POST" className="flex-1">
       <section>
         <Button
           disabled={loading}
           type="submit"
           role="link"
-          className="w-full rounded-full bg-purple-gradient bg-cover text-slate-100 hover:opacity-75 disabled:cursor-not-allowed"
+          className="button w-full rounded-full bg-purple-gradient bg-cover text-slate-100 hover:opacity-75 disabled:cursor-not-allowed"
         >
-          Buy Credit
+          Proceed To Checkout
         </Button>
       </section>
     </form>

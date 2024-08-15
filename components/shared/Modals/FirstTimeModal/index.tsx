@@ -50,7 +50,7 @@ export const FirstTimeModal = ({
             height={122}
           />
 
-          <AlertDialogTitle className="p-24-medium text-slate-500">
+          <AlertDialogTitle className="p-24-medium text-dark-600">
             You Only Have <span className="font-bold">6 Free Coins</span>,
             Please Use them wisely 😅!
           </AlertDialogTitle>
@@ -61,7 +61,7 @@ export const FirstTimeModal = ({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel className="button w-full bg-slate-100 text-dark-400 hover:bg-white">
+          <AlertDialogCancel className="button w-full bg-slate-100 text-dark-400 hover:bg-white hover:text-dark-500 dark:border-transparent">
             I understand
           </AlertDialogCancel>
           <AlertDialogAction

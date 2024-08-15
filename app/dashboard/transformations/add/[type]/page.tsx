@@ -3,7 +3,7 @@ import { auth } from '@clerk/nextjs/server';
 
 import Header from '@/components/shared/Header';
 import { TransformationForm } from '@/components/shared/TransformationForm';
-import { InsufficientCreditsModal } from '@/components/shared/InsufficientCreditsModal';
+import { InsufficientCreditsModal } from '@/components/shared/Modals/InsufficientCreditsModal';
 
 import { getUserById } from '@/lib/actions/user.actions';
 import { transformationTypes, creditFee } from '@/constants';

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { XIcon } from 'lucide-react';
 
 import {
   AlertDialog,
@@ -28,6 +29,7 @@ export const InsufficientCreditsModal = ({ clerkId }: { clerkId: string }) => {
   return (
     <AlertDialog defaultOpen>
       <AlertDialogContent
+        className="bg-slate-200"
         onEscapeKeyDown={e => {
           e.preventDefault();
           router.push('/dashboard');
@@ -35,21 +37,17 @@ export const InsufficientCreditsModal = ({ clerkId }: { clerkId: string }) => {
       >
         <AlertDialogHeader>
           <div className="flex-between">
-            <p className="p-16-semibold text-dark-400">Insufficient Credits</p>
+            <p className="h2-bold text-theme-200 font-inter">
+              Insufficient Credits
+            </p>
             <AlertDialogCancel
-              className="border-0 p-0 hover:bg-transparent"
               onClick={e => {
                 e.preventDefault();
                 router.push('/dashboard/profile');
               }}
+              className="h-6 w-6 rounded-full border-0 bg-transparent p-0 hover:bg-red-500"
             >
-              <Image
-                src="/assets/icons/close.svg"
-                alt="credit coins"
-                width={24}
-                height={24}
-                className="cursor-pointer"
-              />
+              <XIcon className="text-theme-100 hover:text-white" />
             </AlertDialogCancel>
           </div>
 
@@ -64,14 +62,14 @@ export const InsufficientCreditsModal = ({ clerkId }: { clerkId: string }) => {
             Oops.... Looks like you&#39;ve run out of free credits!
           </AlertDialogTitle>
 
-          <AlertDialogDescription className="p-16-regular py-3">
+          <AlertDialogDescription className="p-16-regular italic">
             No worries, though - you can keep enjoying our services by grabbing
             more credits.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel
-            className="button w-full bg-purple-100 text-dark-400"
+            className="button w-full bg-slate-100 text-dark-400 hover:bg-white hover:text-dark-500 dark:border-transparent"
             onClick={e => {
               e.preventDefault();
               router.push('/dashboard/profile');
@@ -80,7 +78,7 @@ export const InsufficientCreditsModal = ({ clerkId }: { clerkId: string }) => {
             Cancel
           </AlertDialogCancel>
           <AlertDialogAction
-            className="button w-full bg-purple-gradient bg-cover"
+            className="button w-full bg-purple-gradient bg-cover text-slate-200 hover:opacity-80"
             onClick={e => {
               e.preventDefault();
               router.push('/dashboard/credits');

@@ -122,7 +122,7 @@ export async function updateDemoOver(clerkId: string) {
     const updatedUser = await User.findOneAndUpdate(
       { clerkId },
       {
-        isDemoOver: false,
+        isDemoOver: true,
       },
       { new: true },
     );

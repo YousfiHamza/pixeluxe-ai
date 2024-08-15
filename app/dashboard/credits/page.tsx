@@ -5,9 +5,10 @@ import { redirect } from 'next/navigation';
 
 import Header from '@/components/shared/Header';
 import { Button } from '@/components/ui/button';
+import { CardModalButton } from '@/components/shared/Modals/StripeCardModal/CardModalButton';
+
 import { plans } from '@/constants';
 import { getUserById } from '@/lib/actions/user.actions';
-import Checkout from '@/components/shared/Checkout';
 
 const Credits = async () => {
   const { userId } = auth();
@@ -25,8 +26,8 @@ const Credits = async () => {
       />
 
       <span className="text-sm font-thin italic">
-        (Since its just a demo, you will need to use stipe test card for the
-        checkout)
+        (Since its just a demo, you will need to use Stripe&apos;s test card for
+        the checkout)
       </span>
       <section>
         <ul className="credits-list">
@@ -76,14 +77,7 @@ const Credits = async () => {
                       Free Consumable
                     </Button>
                   ) : (
-                    <SignedIn>
-                      <Checkout
-                        plan={plan.name}
-                        amount={plan.price}
-                        credits={plan.credits}
-                        buyerId={user._id}
-                      />
-                    </SignedIn>
+                    <CardModalButton plan={plan} buyerId={user._id} />
                   )}
                 </div>
               </div>
