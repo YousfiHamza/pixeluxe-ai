@@ -35,7 +35,7 @@ export function NavBar() {
         {/* Mobile Nav */}
         <div
           className={clsx(
-            'fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-end gap-4 bg-slate-300 pl-[10%] pr-[30%] pt-6 transition-transform duration-300 ease-in-out motion-reduce:transition-none dark:bg-black md:hidden',
+            'fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-end gap-4 bg-gradient-to-b from-slate-400 to-white/80 pl-[10%] pr-[30%] pt-6 transition-transform duration-300 ease-in-out motion-reduce:transition-none dark:from-black dark:to-slate-900/80 md:hidden',
             open ? 'translate-x-[20%]' : 'translate-x-[100%]',
           )}
         >
