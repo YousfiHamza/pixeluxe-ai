@@ -12,7 +12,7 @@ import { transformationTypes, creditFee } from '@/constants';
 const Page = async ({ params: { id } }: SearchParamProps) => {
   const { userId } = auth();
 
-  if (!userId) redirect('/sign-in');
+  if (!userId) redirect('/auth/sign-in');
 
   // to avoid the waterfall effect, we can fetch the user and images in parallel
   const [image, user] = await Promise.all([

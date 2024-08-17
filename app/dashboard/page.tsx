@@ -15,7 +15,7 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
   const searchQuery = (searchParams?.query as string) || '';
   const { userId } = auth();
 
-  if (!userId) redirect('/');
+  if (!userId) redirect('/auth/sign-in');
 
   // to avoid the waterfall effect, we can fetch the user and images in parallel
   const [images, user] = await Promise.all([

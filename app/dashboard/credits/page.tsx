@@ -13,7 +13,7 @@ import { getUserById } from '@/lib/actions/user.actions';
 const Credits = async () => {
   const { userId } = auth();
 
-  if (!userId) redirect('/sign-in');
+  if (!userId) redirect('/auth/sign-in');
 
   const user = await getUserById(userId);
 

@@ -35,7 +35,7 @@ export function NavBar() {
         {/* Mobile Nav */}
         <div
           className={clsx(
-            'fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-end gap-4 bg-slate-200 pl-[10%] pr-[30%] pt-6 transition-transform duration-300 ease-in-out motion-reduce:transition-none dark:bg-slate-900 md:hidden',
+            'fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-end gap-4 bg-slate-200 pl-[10%] pr-[30%] pt-6 transition-transform duration-300 ease-in-out motion-reduce:transition-none dark:bg-black md:hidden',
             open ? 'translate-x-[20%]' : 'translate-x-[100%]',
           )}
         >
@@ -43,7 +43,7 @@ export function NavBar() {
             <Image src="/assets/logo.png" alt="logo" width={120} height={50} />
             <button
               type="button"
-              className="block p-2 text-3xl text-slate-900 dark:text-slate-100 md:hidden"
+              className="block p-2 text-3xl text-slate-900 dark:text-slate-200 md:hidden"
               aria-expanded={open}
               onClick={() => setOpen(false)}
             >

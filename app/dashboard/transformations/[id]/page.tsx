@@ -2,6 +2,7 @@ import { auth } from '@clerk/nextjs/server';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Hammer } from 'lucide-react';
+import { redirect } from 'next/navigation';
 
 import Header from '@/components/shared/Header';
 import TransformedImage from '@/components/shared/TransformedImage';
@@ -14,6 +15,8 @@ export default async function ImageDetails({
   params: { id },
 }: SearchParamProps) {
   const { userId } = auth();
+
+  if (!userId) redirect('/auth/sign-in');
 
   const image = await getImageById(id);
 
