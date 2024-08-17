@@ -15,13 +15,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import { updateFirstTimeConsent } from '@/lib/actions/user.actions';
 
-export const FirstTimeModal = ({
-  clerkId,
-  user,
-}: {
-  clerkId: string;
-  user: UpdateUserParams;
-}) => {
+export const FirstTimeModal = ({ clerkId }: { clerkId: string }) => {
   const router = useRouter();
 
   const handleConsent = () => {

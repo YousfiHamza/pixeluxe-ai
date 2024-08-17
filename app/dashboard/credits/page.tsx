@@ -34,7 +34,7 @@ const Credits = async () => {
           {plans.map(plan => (
             <li key={plan.name} className="relative">
               {plan.isPopular && (
-                <p className="top-00 absolute right-0 rounded-bl-[16px] rounded-tr-[16px] bg-red-500 p-4 text-xl font-medium italic text-slate-100 md:-top-10 md:rounded-bl-none md:rounded-tl-[16px] md:rounded-tr-none md:p-2">
+                <p className="absolute right-0 top-0 rounded-bl-[16px] rounded-tr-[16px] bg-red-500 p-4 text-xl font-medium italic text-slate-100 sm:-top-10 md:rounded-bl-none md:rounded-tl-[16px] md:rounded-tr-none md:p-2 lg:-top-11">
                   Popular
                 </p>
               )}

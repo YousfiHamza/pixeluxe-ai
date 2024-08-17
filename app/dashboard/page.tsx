@@ -25,7 +25,7 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
 
   return (
     <>
-      {user?.isFirstTime && <FirstTimeModal clerkId={userId} user={user} />}
+      {user?.isFirstTime && <FirstTimeModal clerkId={userId} />}
       <section className="home">
         <h1 className="home-heading font-inter text-slate-100">
           Unleash your creative vision with{' '}

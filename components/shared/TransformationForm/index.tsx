@@ -321,7 +321,7 @@ export function TransformationForm({
           <Button
             type="button"
             className="submit-button capitalize"
-            disabled={isTransforming || newTransformation === null}
+            disabled={isTransforming || newTransformation === null || !image}
             onClick={onTransformHandler}
           >
             {isTransforming ? (
@@ -351,7 +351,7 @@ export function TransformationForm({
             {action === 'Add' && (
               <Button
                 className="cta-button bg-red-500 capitalize"
-                onClick={() => window.location.reload()}
+                onClick={() => setImage(null)}
                 disabled={!image}
               >
                 <div className="flex items-center justify-center gap-2">

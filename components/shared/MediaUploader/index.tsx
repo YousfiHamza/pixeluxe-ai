@@ -78,7 +78,7 @@ const MediaUploader = ({
             Original
           </h3>
 
-          {publicId ? (
+          {publicId && image ? (
             <>
               <div className="cursor-pointer overflow-hidden rounded-[10px]">
                 <CldImage
