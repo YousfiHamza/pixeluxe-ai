@@ -11,7 +11,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
   if (!userId) redirect('/auth/sign-in');
 
   return (
-    <main className="root bg-theme">
+    <main className="root bg-slate-200 dark:bg-slate-900">
       <DesktopSidebar />
       <MobileSideBar />
 
