@@ -1,6 +1,11 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 
 import { ButtonLink } from '@/components/shared/ButtonLink';
 
@@ -13,6 +18,8 @@ export function FeatureCard({
   description,
   position,
 }: FeatureCardProps) {
+  const [openLightbox, setOpenLighbox] = useState(false);
+
   return (
     <div className="mt-8 grid items-center gap-6 rounded-xl border border-purple-100 bg-gradient-to-b from-slate-500/15 to-slate-500/5 p-6 backdrop-blur-sm dark:border-blue-50/20 dark:from-slate-50/15 dark:to-slate-50/5 md:mt-12 lg:grid-cols-3 lg:py-12 xl:gap-0">
       <div>
@@ -44,7 +51,7 @@ export function FeatureCard({
       <Image
         src={image || ''}
         className={clsx(
-          'w-full rounded-xl opacity-90 shadow-2xl shadow-black lg:col-span-2 lg:pt-0',
+          'w-full cursor-pointer rounded-xl opacity-90 shadow-2xl shadow-black lg:col-span-2 lg:pt-0',
           position === 'left'
             ? 'lg:order-1 xl:translate-x-[10%]'
             : 'lg:-order-1 xl:translate-x-[-10%]',
@@ -53,6 +60,20 @@ export function FeatureCard({
         height={400}
         width={800}
         sizes="(max-width: 768px) 100vw, 50vw"
+        onClick={() => setOpenLighbox(true)}
+      />
+      <Lightbox
+        open={openLightbox}
+        close={() => setOpenLighbox(false)}
+        slides={[{ src: image || '' }]}
+        styles={{
+          navigationPrev: {
+            display: 'none',
+          },
+          navigationNext: {
+            display: 'none',
+          },
+        }}
       />
     </div>
   );
