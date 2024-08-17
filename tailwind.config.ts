@@ -95,8 +95,10 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       textShadow: {
+        light: '0 1px 2px rgba(255, 0, 0, 0.9)',
         sm: '0 1px 2px rgba(0, 0, 0, 0.9)',
         DEFAULT: '0 2px 4px rgba(0, 0, 0, 0.9)',
+        ['lg-purple']: '0 8px 16px rgba(165, 55, 253, 0.9)',
         lg: '0 8px 16px rgba(0, 0, 0, 0.9)',
       },
     },

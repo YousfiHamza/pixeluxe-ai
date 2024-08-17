@@ -35,7 +35,7 @@ export function NavBar() {
         {/* Mobile Nav */}
         <div
           className={clsx(
-            'fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-end gap-4 bg-slate-200 pl-[10%] pr-[30%] pt-6 transition-transform duration-300 ease-in-out motion-reduce:transition-none dark:bg-black md:hidden',
+            'fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-end gap-4 bg-slate-300 pl-[10%] pr-[30%] pt-6 transition-transform duration-300 ease-in-out motion-reduce:transition-none dark:bg-black md:hidden',
             open ? 'translate-x-[20%]' : 'translate-x-[100%]',
           )}
         >
@@ -43,7 +43,7 @@ export function NavBar() {
             <Image src="/assets/logo.png" alt="logo" width={120} height={50} />
             <button
               type="button"
-              className="block p-2 text-3xl text-slate-900 dark:text-slate-200 md:hidden"
+              className="block text-3xl text-slate-900 dark:text-slate-200 md:hidden"
               aria-expanded={open}
               onClick={() => setOpen(false)}
             >
@@ -53,6 +53,14 @@ export function NavBar() {
           </div>
 
           <div className="mt-10 grid justify-items-end gap-6">
+            <div className="text-theme hover:underline">
+              <Link
+                href="https://www.linkedin.com/in/yousfihamza/"
+                target="_blank"
+              >
+                Contact
+              </Link>
+            </div>
             <div className="text-theme hover:underline">
               <Link href="#features">Features</Link>
             </div>
@@ -80,8 +88,17 @@ export function NavBar() {
         {/* Desktop Nav */}
         <ul className="hidden items-center gap-6 md:flex">
           <li className="text-theme hover:underline">
+            <Link
+              href="https://www.linkedin.com/in/yousfihamza/"
+              target="_blank"
+            >
+              Contact
+            </Link>
+          </li>
+          <li className="text-theme hover:underline">
             <Link href="#features">Features</Link>
           </li>
+
           <li>
             <SignedOut>
               <Button
