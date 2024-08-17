@@ -9,6 +9,7 @@ const Header = ({
   subtitle?: string;
   logo?: string;
 }) => {
+  // TODO: Rename This Component to SectionHeader to avoid confusion with Page Header
   return (
     <div>
       <div className="flex items-center gap-2">

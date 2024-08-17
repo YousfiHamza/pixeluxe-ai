@@ -13,12 +13,7 @@ export function DesktopSidebar() {
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
         <Link href="/" className="sidebar-logo">
-          <Image
-            src="/assets/logo-text.svg"
-            alt="logo"
-            width={180}
-            height={28}
-          />
+          <Image src="/assets/logo.png" alt="logo" width={180} height={50} />
         </Link>
 
         <nav className="sidebar-nav">

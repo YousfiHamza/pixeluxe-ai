@@ -36,7 +36,7 @@ export default function RootLayout({
       <html lang="en">
         <body
           className={cn(
-            'font-poppins antialiased',
+            'bg-theme font-poppins antialiased',
             inter.variable,
             poppins.variable,
           )}
