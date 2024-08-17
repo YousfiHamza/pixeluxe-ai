@@ -1,3 +1,4 @@
+import { CallToActionSection } from '@/components/sections/CallToActionSection';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
 import { Footer } from '@/components/sections/Footer';
 import { Header } from '@/components/sections/Header';
@@ -10,6 +11,7 @@ export default function Home() {
       <main className="mx-auto max-w-7xl px-4">
         <HeroSection />
         <FeaturesSection />
+        <CallToActionSection />
       </main>
       <Footer />
     </>
