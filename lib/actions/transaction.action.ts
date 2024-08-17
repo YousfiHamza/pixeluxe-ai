@@ -2,10 +2,11 @@
 
 import { redirect } from 'next/navigation';
 import Stripe from 'stripe';
+
 import { handleError } from '../utils';
 import { connectToDatabase } from '../database/mongoose';
 import Transaction from '../database/models/transaction.model';
-import { updateCredits } from './user.actions';
+import { updateCredits, updateDemoOver } from './user.actions';
 
 export async function checkoutCredits(transaction: CheckoutTransactionParams) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
@@ -49,6 +50,9 @@ export async function createTransaction(transaction: CreateTransactionParams) {
     });
 
     await updateCredits(transaction.buyerId, transaction.credits);
+
+    // This code will be executed to avoid users to buy new credits and use our services since we still on the demo
+    await updateDemoOver(transaction.buyerId);
 
     return JSON.parse(JSON.stringify(newTransaction));
   } catch (error) {

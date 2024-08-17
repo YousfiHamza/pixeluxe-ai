@@ -15,16 +15,8 @@ import {
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
 
-import { updateDemoOver } from '@/lib/actions/user.actions';
-import { useEffect } from 'react';
-
 export const InsufficientCreditsModal = ({ clerkId }: { clerkId: string }) => {
   const router = useRouter();
-
-  // This code will be executed to avoid users to buy new credits and use our services since we still on the demo
-  useEffect(() => {
-    updateDemoOver(clerkId);
-  }, [clerkId]);
 
   return (
     <AlertDialog defaultOpen>

@@ -410,7 +410,7 @@
   }
 
   .transformed-image {
-    @apply h-fit min-h-72 w-full rounded-[10px] border border-dashed bg-purple-200/20 object-cover p-2;
+    @apply h-fit min-h-72 w-full rounded-[10px] border border-dashed bg-purple-200/10 object-cover p-2;
   }
 
   .transforming-loader {

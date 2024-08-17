@@ -115,12 +115,12 @@ export async function updateFirstTimeConsent(clerkId: string) {
 }
 
 // DEMO OVER
-export async function updateDemoOver(clerkId: string) {
+export async function updateDemoOver(id: string) {
   try {
     await connectToDatabase();
 
     const updatedUser = await User.findOneAndUpdate(
-      { clerkId },
+      { _id: id },
       {
         isDemoOver: true,
       },
