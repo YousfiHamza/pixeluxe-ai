@@ -7,6 +7,7 @@ import { handleError } from '../utils';
 import { connectToDatabase } from '../database/mongoose';
 import Transaction from '../database/models/transaction.model';
 import { updateCredits, updateDemoOver } from './user.actions';
+import { revalidatePath } from 'next/cache';
 
 export async function checkoutCredits(transaction: CheckoutTransactionParams) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
@@ -53,6 +54,8 @@ export async function createTransaction(transaction: CreateTransactionParams) {
 
     // This code will be executed to avoid users to buy new credits and use our services since we still on the demo
     await updateDemoOver(transaction.buyerId);
+
+    revalidatePath('/dashboard/profile');
 
     return JSON.parse(JSON.stringify(newTransaction));
   } catch (error) {
