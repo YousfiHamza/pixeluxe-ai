@@ -15,7 +15,7 @@ import {
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
 
-export const InsufficientCreditsModal = ({ clerkId }: { clerkId: string }) => {
+export const InsufficientCreditsModal = () => {
   const router = useRouter();
 
   return (

@@ -1,14 +1,21 @@
+import { Suspense } from 'react';
 import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs/server';
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 import { Collection } from '@/components/shared/Collection';
-import { FirstTimeModal } from '@/components/shared/Modals/FirstTimeModal';
 
 import { getAllImages } from '@/lib/actions/image.action';
-import { getUserById } from '@/lib/actions/user.actions';
 import { navLinks } from '@/constants';
+
+const FirstTimeModal = dynamic(
+  () => import('@/components/shared/Modals/FirstTimeModal'),
+  {
+    ssr: false,
+  },
+);
 
 export default async function Dashboard({ searchParams }: SearchParamProps) {
   const { userId } = auth();
@@ -18,10 +25,7 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
   if (!userId) redirect('/auth/sign-in');
 
   // to avoid the waterfall effect, we can fetch the user and images in parallel
-  const [images, user] = await Promise.all([
-    getAllImages({ page, searchQuery, limit: 6 }),
-    getUserById(userId || ''),
-  ]);
+  const images = await getAllImages({ page, searchQuery, limit: 6 });
 
   return (
     <>
@@ -63,7 +67,9 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
             totalPages={images?.totalPage}
             page={page}
           />
-          {user?.isFirstTime && <FirstTimeModal clerkId={userId || ''} />}
+          <Suspense fallback="">
+            <FirstTimeModal clerkId={userId} />
+          </Suspense>
         </section>
       )}
     </>
