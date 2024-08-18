@@ -24,7 +24,7 @@ const Page = async ({ params: { id } }: SearchParamProps) => {
     image.transformationType === 'restore' ||
     image.transformationType === 'removeBackground'
   ) {
-    redirect('/dashboard');
+    redirect('/dashboard/home');
   }
 
   const transformation =

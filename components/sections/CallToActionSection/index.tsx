@@ -20,7 +20,7 @@ export function CallToActionSection() {
       </div>
 
       <ButtonLink className="mt-6">
-        <Link href="/dashboard">Learn More</Link>
+        <Link href="/dashboard/home">Learn More</Link>
       </ButtonLink>
     </section>
   );

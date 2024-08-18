@@ -65,7 +65,7 @@ export function HeroSection() {
       <StarGrid />
       <h1 className="hero__heading text-balance text-center text-4xl font-medium text-slate-600 opacity-0 dark:text-slate-300 md:text-7xl">
         Transform Your Images Instantly with AI&apos;s Magic, Powered by{' '}
-        <span className="text-shadow-lg-purple text-theme-300 font-poppins font-bold uppercase">
+        <span className="text-theme-300 font-poppins font-bold uppercase text-shadow-lg-purple">
           Pixeluxe
         </span>{' '}
         .
@@ -78,7 +78,7 @@ export function HeroSection() {
         Backgrounds, Change Colors, and Generate Stunning Visuals with Just a
         Click.
       </div>
-      <Link href="/dashboard">
+      <Link href="/dashboard/home">
         <ButtonLink className="hero__button opacity-0">
           Try for FREE !
         </ButtonLink>

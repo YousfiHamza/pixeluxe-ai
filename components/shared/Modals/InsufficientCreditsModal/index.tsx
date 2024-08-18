@@ -24,7 +24,7 @@ export const InsufficientCreditsModal = ({ clerkId }: { clerkId: string }) => {
         className="bg-slate-200"
         onEscapeKeyDown={e => {
           e.preventDefault();
-          router.push('/dashboard');
+          router.push('/dashboard/home');
         }}
       >
         <AlertDialogHeader>

@@ -25,7 +25,7 @@ export const DemoFinishModal = () => {
         className="bg-slate-200"
         onEscapeKeyDown={e => {
           e.preventDefault();
-          router.push('/dashboard');
+          router.push('/dashboard/home');
         }}
       >
         <AlertDialogHeader>
@@ -36,7 +36,7 @@ export const DemoFinishModal = () => {
             <AlertDialogCancel
               onClick={e => {
                 e.preventDefault();
-                router.push('/dashboard');
+                router.push('/dashboard/home');
               }}
               className="m-0 h-6 w-6 rounded-full border-0 bg-transparent p-0 hover:bg-red-500"
             >
@@ -64,7 +64,7 @@ export const DemoFinishModal = () => {
             className="button w-full self-stretch bg-slate-100 text-dark-400 hover:bg-white hover:text-dark-500 dark:border-transparent"
             onClick={e => {
               e.preventDefault();
-              router.push('/dashboard');
+              router.push('/dashboard/home');
             }}
           >
             Close

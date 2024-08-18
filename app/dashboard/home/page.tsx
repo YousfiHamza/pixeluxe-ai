@@ -1,31 +1,30 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs/server';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import { Collection } from '@/components/shared/Collection';
 import { FirstTimeModal } from '@/components/shared/Modals/FirstTimeModal';
 
-import { navLinks } from '@/constants';
 import { getAllImages } from '@/lib/actions/image.action';
 import { getUserById } from '@/lib/actions/user.actions';
+import { navLinks } from '@/constants';
 
 export default async function Dashboard({ searchParams }: SearchParamProps) {
+  const { userId } = auth();
   const page = Number(searchParams?.page) || 1;
   const searchQuery = (searchParams?.query as string) || '';
-  const { userId } = auth();
 
   if (!userId) redirect('/auth/sign-in');
 
   // to avoid the waterfall effect, we can fetch the user and images in parallel
   const [images, user] = await Promise.all([
     getAllImages({ page, searchQuery, limit: 6 }),
-    getUserById(userId),
+    getUserById(userId || ''),
   ]);
 
   return (
     <>
-      {user?.isFirstTime && <FirstTimeModal clerkId={userId} />}
       <section className="home">
         <h1 className="home-heading font-inter text-slate-100">
           Unleash your creative vision with{' '}
@@ -64,6 +63,7 @@ export default async function Dashboard({ searchParams }: SearchParamProps) {
             totalPages={images?.totalPage}
             page={page}
           />
+          {user?.isFirstTime && <FirstTimeModal clerkId={userId || ''} />}
         </section>
       )}
     </>

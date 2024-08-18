@@ -1,21 +1,10 @@
-import { auth } from '@clerk/nextjs/server';
 import Image from 'next/image';
-import { redirect } from 'next/navigation';
 
 import Header from '@/components/shared/Header';
-import { Button } from '@/components/ui/button';
-import { CardModalButton } from '@/components/shared/Modals/StripeCardModal/CardModalButton';
 
 import { plans } from '@/constants';
-import { getUserById } from '@/lib/actions/user.actions';
 
-const Credits = async () => {
-  const { userId } = auth();
-
-  if (!userId) redirect('/auth/sign-in');
-
-  const user = await getUserById(userId);
-
+export default function CreditsLoadingPage() {
   return (
     <>
       <Header
@@ -68,15 +57,6 @@ const Credits = async () => {
                     ))}
                   </ul>
                 </div>
-                <div>
-                  {plan.name === 'Free' ? (
-                    <Button disabled variant="outline" className="credits-btn">
-                      Free Consumable
-                    </Button>
-                  ) : (
-                    <CardModalButton plan={plan} buyerId={user._id} />
-                  )}
-                </div>
               </div>
             </li>
           ))}
@@ -84,6 +64,4 @@ const Credits = async () => {
       </section>
     </>
   );
-};
-
-export default Credits;
+}

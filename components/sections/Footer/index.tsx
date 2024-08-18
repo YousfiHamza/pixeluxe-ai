@@ -11,7 +11,7 @@ export async function Footer() {
       <nav aria-label="Footer" className="w-full">
         <ul className="text-theme mb-3 flex w-full justify-evenly gap-4 font-medium sm:mb-0 md:justify-end">
           <li className="inline-flex min-h-11 items-center hover:underline">
-            <Link href="/dashboard">Get Started</Link>
+            <Link href="/dashboard/home">Get Started</Link>
           </li>
           <li className="inline-flex min-h-11 items-center hover:underline">
             <Link href="#features">Features</Link>

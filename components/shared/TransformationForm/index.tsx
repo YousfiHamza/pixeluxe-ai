@@ -108,7 +108,7 @@ export function TransformationForm({
           const newImage = await addImage({
             image: imageData,
             userId,
-            path: '/dashboard',
+            path: '/dashboard/home',
           });
 
           if (newImage) {

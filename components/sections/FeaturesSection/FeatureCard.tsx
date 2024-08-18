@@ -44,7 +44,7 @@ export function FeatureCard({
         </div>
 
         <ButtonLink className="font-inter text-xl font-medium sm:text-2xl">
-          <Link href="/dashboard">Try Now!</Link>
+          <Link href="/dashboard/home">Try Now!</Link>
         </ButtonLink>
       </div>
 

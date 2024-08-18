@@ -78,7 +78,7 @@ export function NavBar() {
                   asChild
                   className="button w-full bg-purple-gradient bg-cover text-slate-200 hover:opacity-80"
                 >
-                  <Link href="/dashboard">Dashboard</Link>
+                  <Link href="/dashboard/home">Dashboard</Link>
                 </Button>
               </SignedIn>
             </div>
@@ -113,7 +113,7 @@ export function NavBar() {
                 asChild
                 className="button w-full bg-purple-gradient bg-cover text-slate-200 hover:opacity-80"
               >
-                <Link href="/dashboard">Dashboard</Link>
+                <Link href="/dashboard/home">Dashboard</Link>
               </Button>
             </SignedIn>
           </li>

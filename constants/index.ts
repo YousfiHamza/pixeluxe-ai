@@ -2,7 +2,7 @@ export const navLinks = [
   {
     id: 1,
     label: 'Home',
-    route: '/dashboard',
+    route: '/dashboard/home',
     icon: '/assets/icons/home.svg',
   },
   {
@@ -65,6 +65,12 @@ export const navLinks = [
 ];
 
 export const transformationTypes = {
+  default: {
+    type: 'default',
+    title: '',
+    subTitle: '',
+    icon: 'stars.svg',
+  },
   restore: {
     type: 'restore',
     title: 'Restore Image',
