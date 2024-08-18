@@ -34,9 +34,7 @@ const Page = async ({ params: { id } }: SearchParamProps) => {
     <>
       <Header title={transformation.title} subtitle={transformation.subTitle} />
 
-      {user.creditBalance < Math.abs(creditFee) && (
-        <InsufficientCreditsModal clerkId={userId} />
-      )}
+      {user.creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
 
       <section className="mt-10">
         <TransformationForm

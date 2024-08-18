@@ -23,7 +23,7 @@ const AddTransformationTypePage = async ({
     if (user.isDemoOver) {
       return <DemoFinishModal />;
     } else if (user.creditBalance < Math.abs(creditFee)) {
-      return <InsufficientCreditsModal clerkId={userId} />;
+      return <InsufficientCreditsModal />;
     }
   };
 
