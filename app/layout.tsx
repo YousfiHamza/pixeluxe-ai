@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://pixeluxe-ai.vercel.app'),
   title: 'Pixeluxe AI',
   description:
-    'Pixeluxe is your ultimate AI-powered image enhancement tool, offering services like background removal, object recoloring, generative fill, and image restoration. Elevate your photos with precision, creativity, and ease—perfect for designers, photographers, and creatives looking to transform their visuals effortlessly. Discover the power of AI to perfect every pixel with Pixeluxe.',
+    'Your ultimate AI-powered image enhancement tool, offering services like background removal, object recoloring, generative fill, and image restoration. Elevate your photos with precision, creativity, and ease—perfect for designers, photographers, and creatives looking to transform their visuals effortlessly. Discover the power of AI to perfect every pixel with Pixeluxe.',
   keywords: [
     'AI image editing',
     'Background removal',
@@ -32,16 +32,16 @@ export const metadata: Metadata = {
     'AI background remover',
   ],
   openGraph: {
-    images: '/seo/pixeluxe-og-image.jpg',
+    images: '/seo/pixeluxe-og-image-2.jpg',
     title: 'Pixeluxe AI',
     description:
-      'Pixeluxe is your ultimate AI-powered image enhancement tool, offering services like background removal, object recoloring, generative fill, and image restoration. Elevate your photos with precision, creativity, and ease—perfect for designers, photographers, and creatives looking to transform their visuals effortlessly. Discover the power of AI to perfect every pixel with Pixeluxe.',
+      'Your ultimate AI-powered image enhancement tool, offering services like background removal, object recoloring, generative fill, and image restoration. Elevate your photos with precision, creativity, and ease—perfect for designers, photographers, and creatives looking to transform their visuals effortlessly. Discover the power of AI to perfect every pixel with Pixeluxe.',
   },
   twitter: {
-    images: '/seo/pixeluxe-og-image.jpg',
+    images: '/seo/pixeluxe-og-image-2.jpg',
     title: 'Pixeluxe AI',
     description:
-      'Pixeluxe is your ultimate AI-powered image enhancement tool, offering services like background removal, object recoloring, generative fill, and image restoration. Elevate your photos with precision, creativity, and ease—perfect for designers, photographers, and creatives looking to transform their visuals effortlessly. Discover the power of AI to perfect every pixel with Pixeluxe.',
+      'Your ultimate AI-powered image enhancement tool, offering services like background removal, object recoloring, generative fill, and image restoration. Elevate your photos with precision, creativity, and ease—perfect for designers, photographers, and creatives looking to transform their visuals effortlessly. Discover the power of AI to perfect every pixel with Pixeluxe.',
   },
   applicationName: 'Pixeluxe',
 };
