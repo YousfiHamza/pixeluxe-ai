@@ -17,10 +17,7 @@ export async function Footer() {
             <Link href="#features">Features</Link>
           </li>
           <li className="inline-flex min-h-11 items-center hover:underline">
-            <Link
-              href="https://www.linkedin.com/in/yousfihamza/"
-              target="_blank"
-            >
+            <Link href="https://hamza.yousfi.dev" target="_blank">
               Contact
             </Link>
           </li>

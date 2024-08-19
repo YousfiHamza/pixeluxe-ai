@@ -10,8 +10,8 @@ import { cn } from '@/lib/utils';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://pixeluxe-ai.vercel.app'),
-  title: 'Pixeluxe AI',
+  metadataBase: new URL('https://pixeluxe-ai.yousfi.dev'),
+  title: 'Pixeluxe Ai',
   description:
     'Your ultimate AI-powered image enhancement tool, offering services like background removal, object recoloring, generative fill, and image restoration. Elevate your photos with precision, creativity, and ease—perfect for designers, photographers, and creatives looking to transform their visuals effortlessly. Discover the power of AI to perfect every pixel with Pixeluxe.',
   keywords: [
@@ -33,17 +33,17 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     images: '/seo/pixeluxe-og-image-2.jpg',
-    title: 'Pixeluxe AI',
+    title: 'Pixeluxe Ai',
     description:
       'Your ultimate AI-powered image enhancement tool, offering services like background removal, object recoloring, generative fill, and image restoration. Elevate your photos with precision, creativity, and ease—perfect for designers, photographers, and creatives looking to transform their visuals effortlessly. Discover the power of AI to perfect every pixel with Pixeluxe.',
   },
   twitter: {
     images: '/seo/pixeluxe-og-image-2.jpg',
-    title: 'Pixeluxe AI',
+    title: 'Pixeluxe Ai',
     description:
       'Your ultimate AI-powered image enhancement tool, offering services like background removal, object recoloring, generative fill, and image restoration. Elevate your photos with precision, creativity, and ease—perfect for designers, photographers, and creatives looking to transform their visuals effortlessly. Discover the power of AI to perfect every pixel with Pixeluxe.',
   },
-  applicationName: 'Pixeluxe',
+  applicationName: 'Pixeluxe Ai',
 };
 
 const poppins = Poppins({

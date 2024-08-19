@@ -70,9 +70,7 @@ export const DemoFinishModal = () => {
             Close
           </AlertDialogCancel>
           <AlertDialogAction className="button w-full bg-purple-gradient bg-cover text-slate-200 hover:opacity-80">
-            <Link href="https://www.linkedin.com/in/yousfihamza/">
-              Contact Developer
-            </Link>
+            <Link href="https://hamza.yousfi.dev">Contact Developer</Link>
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

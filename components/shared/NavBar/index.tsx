@@ -54,10 +54,7 @@ export function NavBar() {
 
           <div className="mt-10 grid justify-items-end gap-6">
             <div className="text-theme hover:underline">
-              <Link
-                href="https://www.linkedin.com/in/yousfihamza/"
-                target="_blank"
-              >
+              <Link href="https://hamza.yousfi.dev" target="_blank">
                 Contact
               </Link>
             </div>
@@ -88,10 +85,7 @@ export function NavBar() {
         {/* Desktop Nav */}
         <ul className="hidden items-center gap-6 md:flex">
           <li className="text-theme hover:underline">
-            <Link
-              href="https://www.linkedin.com/in/yousfihamza/"
-              target="_blank"
-            >
+            <Link href="https://hamza.yousfi.dev" target="_blank">
               Contact
             </Link>
           </li>
