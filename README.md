@@ -6,6 +6,8 @@
 
 ## 🖼️ Overview
 
+🌐[Live Demo](https://pixeluxe-ai.yousfi.dev)
+
 **Pixeluxe** is an **AI-driven SaaS platform** that offers a suite of advanced image enhancement services, including background removal, object recoloring, generative fill, and image restoration. Designed for **designers, photographers, and creatives**, Pixeluxe empowers users to transform visuals with precision and creativity. The platform leverages modern technologies to deliver a seamless user experience and ensure high performance.
 
 ![React](https://img.shields.io/badge/-React-black?style=for-the-badge&logoColor=white&logo=react&color=blue)
@@ -15,7 +17,6 @@
 ![Clerk](https://img.shields.io/badge/-Clerk-black?style=for-the-badge&logoColor=white&logo=clerk&color=a1a1d1)
 ![Stripe](https://img.shields.io/badge/-Stripe-black?style=for-the-badge&logoColor=white&logo=stripe&color=purple)
 
-🌐[Live Demo](https://pixeluxe-ai.yousfi.dev)
 
 ---
 
