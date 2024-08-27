@@ -1,9 +1,7 @@
 # Pixeluxe • AI-Powered Image Enhancement Platform
 
-![Pixeluxe Logo](/assets/logo.png)
-
 <p align="center">
-  <img src="/assets/logo.png" />
+  <img src="https://pixeluxe-ai.yousfi.dev/_next/image?url=%2Fassets%2Flogo.png&w=256&q=75" />
 </p>
 
 ## 🖼️ Overview
@@ -24,7 +22,7 @@
 ## 📜 Table of Contents
 
 - [Features](#-features)
-- [Technologies Used](#-technologies-used)
+- [Technologies Used](#-technologies)
 - [Installation](#-installation)
 - [Contributing](#-contributing)
 - [Contact](#-contact)
@@ -43,7 +41,7 @@
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Technologies
 
 - **Frontend**:
 
@@ -108,7 +106,7 @@ To run Pixeluxe locally, follow these steps:
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 We welcome contributions! To get started:
 
