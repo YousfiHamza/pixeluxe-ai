@@ -26,6 +26,7 @@ export function FeatureCard({
               width={50}
               height={50}
               className="size-9 brightness-200 md:size-16"
+              loading="lazy"
             />
           </div>
           <div className="text-theme font-poppins text-2xl font-medium sm:text-4xl">

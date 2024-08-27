@@ -1,7 +1,7 @@
+import Link from 'next/link';
 import { ButtonLink } from '@/components/shared/ButtonLink';
 
 import PlainLogo from './PlainLogo';
-import Link from 'next/link';
 
 export function CallToActionSection() {
   return (
